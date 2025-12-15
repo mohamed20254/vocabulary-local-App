@@ -68,6 +68,20 @@ class WordModel {
 
     return _getwordAfterCheckExample(isArabic: isArabic, newExample: newList);
   }
+  //  incrementIndexOfDataBase
+
+  WordModel decrmentIndex() {
+    return WordModel(
+      indexOfDataBase: indexOfDataBase - 1,
+      text: text,
+      isArabic: isArabic,
+      colorCode: colorCode,
+      arabicExamples: arabicExamples,
+      arabicSimilarWords: arabicSimilarWords,
+      englisExamples: englisExamples,
+      englishSmiliarWords: englishSmiliarWords,
+    );
+  }
 
   //========================funcation Refactor
   List<String> _initializedNewsimilerWord({required final bool isArabic}) {

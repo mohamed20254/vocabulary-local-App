@@ -3,7 +3,7 @@ import 'package:vocabulary/model/word_model.dart';
 
 class WordTypeAdapter extends TypeAdapter<WordModel> {
   @override
-  read(BinaryReader reader) {
+  read(final BinaryReader reader) {
     return WordModel(
       colorCode: reader.readInt(),
       isArabic: reader.readBool(),
@@ -20,7 +20,7 @@ class WordTypeAdapter extends TypeAdapter<WordModel> {
   int get typeId => 1;
 
   @override
-  void write(BinaryWriter writer, WordModel obj) {
+  void write(final BinaryWriter writer, final WordModel obj) {
     writer.writeInt(obj.colorCode);
     writer.writeBool(obj.isArabic);
     writer.writeInt(obj.indexOfDataBase);
