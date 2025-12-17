@@ -7,7 +7,12 @@ sealed class WriteDataState extends Equatable {
   List<Object> get props => [];
 }
 
-final class WriteDataInitial extends WriteDataState {}
+final class WriteDataInitial extends WriteDataState {
+  final int timestamp;
+  WriteDataInitial() : timestamp = DateTime.now().microsecondsSinceEpoch;
+  @override
+  List<Object> get props => [timestamp];
+}
 
 final class WriteDataLoadngState extends WriteDataState {}
 

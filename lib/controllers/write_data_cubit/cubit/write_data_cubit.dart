@@ -23,11 +23,23 @@ class WriteDataCubit extends Cubit<WriteDataState> {
   //  update isArabic
   void updateIsArabic(final bool isArabic) {
     this.isArabic = isArabic;
+    emit(WriteDataInitial());
   }
 
   //update ColorsCode
   void updateColorCode(final int colorCode) {
     this.colorCode = colorCode;
+    emit(WriteDataInitial());
+  }
+
+  bool iswordhaveDatabase() {
+    final List<WordModel> words = _getWordsFromDataBAse;
+    for (var i = 0; i < words.length; i++) {
+      if (words[i].text == text) {
+        return true;
+      }
+    }
+    return false;
   }
 
   //======add Word
