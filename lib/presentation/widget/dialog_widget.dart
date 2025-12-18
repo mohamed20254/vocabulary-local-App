@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:vocabulary/controllers/read_data_cubit/read_data_cubit.dart';
 import 'package:vocabulary/core/constant/common/custom_text_form_field.dart';
 import 'package:vocabulary/controllers/write_data_cubit/cubit/write_data_cubit.dart';
 import 'package:vocabulary/presentation/widget/arabic_or_english_widget.dart';
@@ -105,6 +106,7 @@ class _DialogWidgetState extends State<DialogWidget> {
                             );
                             if (_globalKey.currentState?.validate() ?? false) {
                               context.read<WriteDataCubit>().addWord();
+                              context.read<ReadDataCubit>().getWords();
                               Navigator.pop(context);
                             }
                           },

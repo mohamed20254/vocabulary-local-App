@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vocabulary/controllers/write_data_cubit/cubit/write_data_cubit.dart';
@@ -22,32 +24,38 @@ class ColorWidget extends StatelessWidget {
     ];
     return SizedBox(
       height: 50,
-      child: ListView.separated(
-        scrollDirection: .horizontal,
-        itemCount: colors.length,
-        itemBuilder: (final context, final index) {
-          return InkWell(
-            onTap: () {
-              context.read<WriteDataCubit>().updateColorCode(colors[index]);
-            },
-            child: Container(
-              height: 40,
-              width: 40,
-              decoration: BoxDecoration(
-                color: Color(colors[index]),
-                border: currentColorCode == colors[index]
-                    ? Border.all(color: Colors.white, width: 2)
+      child: ScrollConfiguration(
+        behavior: ScrollBehavior().copyWith(
+          dragDevices: {PointerDeviceKind.mouse},
+          scrollbars: false,
+        ),
+        child: ListView.separated(
+          scrollDirection: .horizontal,
+          itemCount: colors.length,
+          itemBuilder: (final context, final index) {
+            return InkWell(
+              onTap: () {
+                context.read<WriteDataCubit>().updateColorCode(colors[index]);
+              },
+              child: Container(
+                height: 40,
+                width: 40,
+                decoration: BoxDecoration(
+                  color: Color(colors[index]),
+                  border: currentColorCode == colors[index]
+                      ? Border.all(color: Colors.white, width: 2)
+                      : null,
+                  shape: BoxShape.circle,
+                ),
+                child: currentColorCode == colors[index]
+                    ? const Icon(Icons.done)
                     : null,
-                shape: BoxShape.circle,
               ),
-              child: currentColorCode == colors[index]
-                  ? const Icon(Icons.done)
-                  : null,
-            ),
-          );
-        },
-        separatorBuilder: (final context, final index) =>
-            const SizedBox(width: 5),
+            );
+          },
+          separatorBuilder: (final context, final index) =>
+              const SizedBox(width: 5),
+        ),
       ),
     );
   }

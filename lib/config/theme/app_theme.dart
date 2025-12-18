@@ -6,7 +6,11 @@ abstract class AppTheme {
     brightness: Brightness.dark,
 
     appBarTheme: const AppBarThemeData(
-      titleTextStyle: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
+      titleTextStyle: TextStyle(
+        fontSize: 22,
+        fontWeight: FontWeight.w500,
+        color: Colors.white,
+      ),
 
       elevation: 0.0,
       centerTitle: true,
@@ -15,7 +19,7 @@ abstract class AppTheme {
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.blueAccent,
-        side: BorderSide(color: Colors.white, width: 2),
+        side: const BorderSide(color: Colors.white, width: 2),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
     ),
