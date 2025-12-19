@@ -19,7 +19,6 @@ Designed using **Cubit + MVC architecture** with **Hive local database** for fas
 ---
 
 ## 📸 Screenshots
-*Add your screenshots here:*
 
 <table>
 <tr> 
